@@ -25,7 +25,7 @@ function Game({ mode }) {
 
 
   useEffect(() => {
-    axios.get("http://localhost:5000/players").then(res => {
+    axios.get("https://sportsdle-backend.onrender.com/players").then(res => {
       const sortedPlayers = res.data.sort((a, b) => {
         const firstA = a.name.split(" ")[0].toLowerCase();
         const firstB = b.name.split(" ")[0].toLowerCase();
@@ -52,7 +52,7 @@ function Game({ mode }) {
 
   useEffect(() => {
   if (mode !== "daily") {
-    axios.get(`http://localhost:5000/mystery?mode=${mode}`)
+    axios.get(`https://sportsdle-backend.onrender.com/mystery?mode=${mode}`)
       .then(res => setMysteryPlayer(res.data));
   } else {
     const todayKey = DateTime.now().toFormat("yyyy-LL-dd");
@@ -75,7 +75,7 @@ function Game({ mode }) {
       return;
     }
 
-    axios.get(`http://localhost:5000/mystery?mode=daily`).then(res => {
+    axios.get(`https://sportsdle-backend.onrender.com/mystery?mode=daily`).then(res => {
       setMysteryPlayer(res.data);
       const data = {
         mysteryPlayer: res.data,
@@ -222,7 +222,7 @@ const filteredPlayers = players.filter(p =>
 const canShowHintButton = results.length > 0 && guessesLeft > 1 && !isWinner && !isLoser && !hasUsedHint && !lockedOut;
 
 const resetUnlimitedGame = () => {
-  axios.get(`http://localhost:5000/mystery?mode=unlimited`).then(res => {
+  axios.get(`https://sportsdle-backend.onrender.com?mode=unlimited`).then(res => {
     setMysteryPlayer(res.data);
     setResults([]);
     setGuess("");
@@ -408,7 +408,7 @@ const resetUnlimitedGame = () => {
                 setGuessesLeft(prev => {
                   const newGuesses = prev - 1;
                   if (newGuesses === 0 && !res.data.isCorrect) {
-                    axios.get("http://localhost:5000/mystery").then(response => {
+                    axios.get("https://sportsdle-backend.onrender.com").then(response => {
                       setMysteryPlayer(response.data);
                       setIsLoser(true);
                     });
