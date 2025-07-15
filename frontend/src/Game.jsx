@@ -25,15 +25,20 @@ function Game({ mode }) {
 
 
   useEffect(() => {
-    axios.get("https://sportsdle-backend.onrender.com/players").then(res => {
+  axios.get("https://sportsdle-backend.onrender.com/players")
+    .then(res => {
       const sortedPlayers = res.data.sort((a, b) => {
         const firstA = a.name.split(" ")[0].toLowerCase();
         const firstB = b.name.split(" ")[0].toLowerCase();
         return firstA.localeCompare(firstB);
       });
       setPlayers(sortedPlayers);
+    })
+    .catch(err => {
+      console.error("Failed to fetch players:", err);
     });
-  }, []);
+}, []);
+
 
 
   const dropdownRef = useRef(null);
@@ -149,7 +154,7 @@ useEffect(() => {
     return;
   }
 
-  axios.post("http://localhost:5000/guess", {
+  axios.post("http://localhost:5000/players/guess", {
     name: guess,
     mysteryPlayer: mysteryPlayer,
   })
@@ -397,7 +402,7 @@ const resetUnlimitedGame = () => {
                 if (lastResult.draft_number?.arrow === "green") usedGreenFields.push("draft_number");
               }
 
-              axios.post("http://localhost:5000/hint", {
+              axios.post("http://localhost:5000/players/hint", {
     used: usedGreenFields,
     mysteryPlayer: mysteryPlayer
   })
