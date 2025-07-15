@@ -297,18 +297,21 @@ const resetUnlimitedGame = () => {
     🏀 NBA Wordle
   </Link>
 
-  {mode === "daily" && (isWinner || isLoser) ? (
+  {mode === "daily" && (isWinner || isLoser) && (
     <div className="text-center text-green-700 font-semibold mb-4">
       <div>🏁 Daily complete! Come back tomorrow to play again.</div>
       <div className="text-sm text-gray-600 mt-1">
         ⏳ Next game in: <span className="font-mono">{countdown}</span> (EST)
       </div>
     </div>
-  ) : (
+  )}
+
+  {mode === "daily" && !(isWinner || isLoser) && (
     <div className="text-lg text-gray-700 mb-4">
       🔄 New mystery player in: <span className="font-mono">{countdown}</span> (EST)
     </div>
   )}
+
 
   {mode === "unlimited" && (isWinner || isLoser) && (
     <button
@@ -330,7 +333,7 @@ const resetUnlimitedGame = () => {
         onKeyDown={(e) => {
           if (e.key === "Enter") handleGuess();
         }}
-        className="border p-2 rounded-md shadow-md w-full"
+        className="border p-2 rounded-md shadow-md w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-400"
       />
 
       <button
@@ -342,12 +345,12 @@ const resetUnlimitedGame = () => {
       </button>
 
       {showDropdown && (
-        <div className="absolute z-50 max-h-64 overflow-y-auto bg-white shadow-md border border-gray-300 rounded-md mt-1 w-full">
+        <div className="absolute z-50 max-h-64 overflow-y-auto bg-white dark:bg-gray-800 shadow-md border border-gray-300 dark:border-gray-600 rounded-md mt-1 w-full">
           {filteredPlayers.length > 0 ? (
             filteredPlayers.map((p, index) => (
               <div
                 key={index}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer text-gray-800 dark:text-gray-100"
                 onClick={() => {
                   setGuess(p.name);
                   setShowDropdown(false);
@@ -357,7 +360,7 @@ const resetUnlimitedGame = () => {
               </div>
             ))
           ) : (
-            <div className="px-4 py-2 text-gray-500">No matches</div>
+           <div className="px-4 py-2 text-gray-500 dark:text-gray-400">No matches</div>
           )}
         </div>
       )}
