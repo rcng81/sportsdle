@@ -154,7 +154,7 @@ useEffect(() => {
     return;
   }
 
-  axios.post("http://localhost:5000/players/guess", {
+  axios.post("https://sportsdle-backend.onrender.com/guess", {
     name: guess,
     mysteryPlayer: mysteryPlayer,
   })
@@ -402,7 +402,7 @@ const resetUnlimitedGame = () => {
                 if (lastResult.draft_number?.arrow === "green") usedGreenFields.push("draft_number");
               }
 
-              axios.post("http://localhost:5000/players/hint", {
+              axios.post("https://sportsdle-backend.onrender.com/hint", {
     used: usedGreenFields,
     mysteryPlayer: mysteryPlayer
   })
