@@ -73,36 +73,31 @@ def get_mystery():
 
 
 
-@app.route('/hint', methods=['POST'])
-def get_hint():
-    used_fields = request.json.get("used", [])
-    mystery_player = request.json.get("mysteryPlayer")
+@app.route("/hint", methods=["POST"])
+def give_hint():
+    data = request.json
+    mystery = data.get("mysteryPlayer")
+    used_fields = set(data.get("used", []))
 
-    if not mystery_player:
-        return jsonify({"error": "Missing mystery player"}), 400
+    # Only allow hints from this approved list (draft_year excluded)
+    possible_fields = ["team", "conference", "position", "age", "jersey", "draft_number"]
 
-    green_fields = ["team", "conference", "position", "draft_year"]
-    hintable = []
+    # Remove fields that have already been used
+    available_fields = [f for f in possible_fields if f not in used_fields]
 
-    for field in green_fields:
-        if field not in used_fields:
-            hintable.append((field, mystery_player.get(field)))
+    # Filter out fields that have no value, are empty, or "Undrafted"
+    valid_fields = []
+    for field in available_fields:
+        value = mystery.get(field)
+        if value not in [None, "", "Undrafted"]:
+            valid_fields.append((field, value))
 
-    # Numeric / calculated fields
-    if "age" not in used_fields:
-        hintable.append(("age", calculate_age(mystery_player.get("birthdate"))))
-    if "jersey" not in used_fields:
-        hintable.append(("jersey", mystery_player.get("jersey")))
-    if "draft_number" not in used_fields:
-        hintable.append(("draft_number", mystery_player.get("draft_number")))
+    if not valid_fields:
+        return jsonify({"field": None, "value": "No more valid hints available."}), 200
 
-    hintable = [(field, value) for field, value in hintable if value not in [None, "", "Undrafted"]]
-
-    if not hintable:
-        return jsonify({"hint": "No available hints"}), 200
-
-    field, value = random.choice(hintable)
+    field, value = random.choice(valid_fields)
     return jsonify({"field": field, "value": value})
+
 
 
 

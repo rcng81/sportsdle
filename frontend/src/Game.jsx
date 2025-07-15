@@ -70,12 +70,12 @@ function Game({ mode }) {
       if (data.isWinner) setIsWinner(true);
       if (data.isLoser) setIsLoser(true);
       if (data.isWinner || data.isLoser) setLockedOut(true);
-
-      // 👇 Restore game state
       if (data.mysteryPlayer) setMysteryPlayer(data.mysteryPlayer);
       if (data.results) setResults(data.results);
       if (data.guessesLeft !== undefined) setGuessesLeft(data.guessesLeft);
       if (data.hasUsedHint) setHasUsedHint(data.hasUsedHint);
+      if (data.hint) setHint(data.hint);
+
 
       return;
     }
@@ -107,6 +107,7 @@ useEffect(() => {
     isWinner,
     isLoser,
     hasUsedHint,
+    hint,
     mysteryPlayer
   };
 
@@ -245,22 +246,23 @@ const resetUnlimitedGame = () => {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 flex flex-col items-center p-6">
       {showWinnerPopup && isWinner && (
-    <>
-      <Confetti width={width} height={height} />
-      <div className="fixed inset-0 flex items-center justify-center z-50">
-        <div className="bg-white p-6 rounded shadow-lg border text-center">
-          <h2 className="text-2xl font-bold text-green-600 mb-2">🎉 Congratulations! 🎉</h2>
-          <p>You correctly guessed the mystery player!</p>
-          <button
-            onClick={() => setShowWinnerPopup(false)}
-            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          >
-            Close
-          </button>
-        </div>
+  <>
+    <Confetti width={width} height={height} />
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded shadow-lg border text-center">
+        <h2 className="text-2xl font-bold text-green-600 mb-2">🎉 Congratulations! 🎉</h2>
+        <p className="text-gray-800 dark:text-gray-100">You correctly guessed the mystery player!</p>
+        <button
+          onClick={() => setShowWinnerPopup(false)}
+          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Close
+        </button>
       </div>
-    </>
-  )}
+    </div>
+  </>
+)}
+
 
   {showLoserPopup && isLoser && !isWinner && mysteryPlayer && (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
@@ -388,44 +390,57 @@ const resetUnlimitedGame = () => {
       {canShowHintButton && (
         <>
           <button
-            onClick={() => {
-              const lastResult = results[results.length - 1];
+  onClick={() => {
+  const usedGreenFields = new Set();
 
-              const usedGreenFields = [];
-              if (lastResult) {
-                if (lastResult.team?.arrow === "green") usedGreenFields.push("team");
-                if (lastResult.conference?.arrow === "green") usedGreenFields.push("conference");
-                if (lastResult.position?.arrow === "green") usedGreenFields.push("position");
-                if (lastResult.draft_year?.arrow === "green") usedGreenFields.push("draft_year");
-                if (lastResult.age?.arrow === "green") usedGreenFields.push("age");
-                if (lastResult.jersey?.arrow === "green") usedGreenFields.push("jersey");
-                if (lastResult.draft_number?.arrow === "green") usedGreenFields.push("draft_number");
-              }
+  results.forEach((r) => {
+    if (r.team?.arrow === "green") usedGreenFields.add("team");
+    if (r.conference?.arrow === "green") usedGreenFields.add("conference");
+    if (r.position?.arrow === "green") usedGreenFields.add("position");
+    if (r.age?.arrow === "green") usedGreenFields.add("age");
+    if (r.jersey?.arrow === "green") usedGreenFields.add("jersey");
+    if (r.draft_number?.arrow === "green") usedGreenFields.add("draft_number");
+  });
 
-              axios.post("https://sportsdle-backend.onrender.com/hint", {
-    used: usedGreenFields,
+  axios.post("https://sportsdle-backend.onrender.com/hint", {
+    used: Array.from(usedGreenFields),
     mysteryPlayer: mysteryPlayer
   })
+  .then(res => {
+    console.log("Hint response:", res.data); // ✅ This logs every hint response
+    setHint(res.data);
+    setHasUsedHint(true);
 
-              .then(res => {
-                setHint(res.data);
-                setHasUsedHint(true);
-                setGuessesLeft(prev => {
-                  const newGuesses = prev - 1;
-                  if (newGuesses === 0 && !res.data.isCorrect) {
-                    axios.get("https://sportsdle-backend.onrender.com").then(response => {
-                      setMysteryPlayer(response.data);
-                      setIsLoser(true);
-                    });
-                  }
-                  return newGuesses;
-                });
-              });
-          }}
-          className="mt-2 w-full bg-transparent text-yellow-500 py-2 rounded-md hover:bg-gray-200 text-sm font-medium border border-transparent"
-        >
-          Get a Hint
-        </button>
+    if (mode === "daily") {
+      const todayKey = DateTime.now().toFormat("yyyy-LL-dd");
+      const progressKey = `dailyProgress-${todayKey}`;
+      const saved = JSON.parse(localStorage.getItem(progressKey)) || {};
+      saved.hint = res.data;
+      localStorage.setItem(progressKey, JSON.stringify(saved));
+    }
+
+    setGuessesLeft(prev => {
+      const newGuesses = prev - 1;
+      if (newGuesses === 0 && !res.data.isCorrect) {
+        axios.get("https://sportsdle-backend.onrender.com").then(response => {
+          setMysteryPlayer(response.data);
+          setIsLoser(true);
+        });
+      }
+      return newGuesses;
+    });
+  })
+  .catch(err => {
+    console.error("Error fetching hint:", err);
+  });
+}}
+
+
+  className="mt-2 w-full bg-transparent text-yellow-500 py-2 rounded-md hover:bg-gray-200 text-sm font-medium border border-transparent"
+>
+  Get a Hint
+</button>
+
 
         {hint && (
           <div className="mt-2 text-sm text-yellow-700 bg-yellow-100 border border-yellow-300 p-2 rounded-md w-full text-center">
@@ -556,7 +571,7 @@ const resetUnlimitedGame = () => {
         {value} {direction || ""}
       </p>
       {hint && (
-        <p className="mt-2 text-xs text-yellow-700 bg-yellow-100 dark:bg-yellow-800 border border-yellow-300 dark:border-yellow-600 rounded px-2 py-1">
+        <p className="mt-2 text-xs text-yellow-700 dark:text-white bg-yellow-100 dark:bg-yellow-800 border border-yellow-300 dark:border-yellow-600 rounded px-2 py-1">
           Hint: {hint.value}
         </p>
       )}
