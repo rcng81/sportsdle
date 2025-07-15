@@ -97,7 +97,7 @@
     "age": null,
     "birthdate": "1998-09-02T00:00:00",
     "position": "Guard",
-    "jersey": "9",
+    "jersey": "7",
     "draft_number": "17",
     "draft_year": "2019",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629638.png",
@@ -152,17 +152,17 @@
   {
     "id": 203937,
     "name": "Kyle Anderson",
-    "team": "Heat",
-    "conference": "East",
+    "team": "Jazz",
+    "conference": "West",
     "age": null,
     "birthdate": "1993-09-20T00:00:00",
     "position": "Forward-Guard",
-    "jersey": "20",
+    "jersey": "2",
     "draft_number": "30",
     "draft_year": "2014",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/203937.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612762/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 203507,
@@ -272,8 +272,8 @@
   {
     "id": 1628963,
     "name": "Marvin Bagley III",
-    "team": "Grizzlies",
-    "conference": "West",
+    "team": "Wizards",
+    "conference": "East",
     "age": null,
     "birthdate": "1999-03-14T00:00:00",
     "position": "Forward",
@@ -281,8 +281,8 @@
     "draft_number": "2",
     "draft_year": "2018",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628963.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1631116,
@@ -392,7 +392,7 @@
   {
     "id": 1631230,
     "name": "Dominick Barlow",
-    "team": "Hawks",
+    "team": "76ers",
     "conference": "East",
     "age": null,
     "birthdate": "2003-05-26T00:00:00",
@@ -401,7 +401,7 @@
     "draft_number": "Undrafted",
     "draft_year": "Undrafted",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631230.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612737/global/L/logo.svg",
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg",
     "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
@@ -767,8 +767,8 @@
   {
     "id": 1631103,
     "name": "Malaki Branham",
-    "team": "Spurs",
-    "conference": "West",
+    "team": "Wizards",
+    "conference": "East",
     "age": null,
     "birthdate": "2003-05-12T00:00:00",
     "position": "Forward",
@@ -776,8 +776,8 @@
     "draft_number": "20",
     "draft_year": "2022",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631103.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1631128,
@@ -902,7 +902,7 @@
   {
     "id": 1628971,
     "name": "Bruce Brown",
-    "team": "Pelicans",
+    "team": "Nuggets",
     "conference": "West",
     "age": null,
     "birthdate": "1996-08-15T00:00:00",
@@ -911,7 +911,7 @@
     "draft_number": "42",
     "draft_year": "2018",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628971.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612740/global/L/logo.svg",
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg",
     "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
@@ -1147,7 +1147,7 @@
     "age": null,
     "birthdate": "2005-07-21T00:00:00",
     "position": "Guard",
-    "jersey": "8",
+    "jersey": "7",
     "draft_number": "14",
     "draft_year": "2024",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642267.png",
@@ -1397,8 +1397,8 @@
   {
     "id": 203903,
     "name": "Jordan Clarkson",
-    "team": "Jazz",
-    "conference": "West",
+    "team": "Knicks",
+    "conference": "East",
     "age": null,
     "birthdate": "1992-06-07T00:00:00",
     "position": "Guard",
@@ -1406,8 +1406,8 @@
     "draft_number": "46",
     "draft_year": "2014",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/203903.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612762/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1629651,
@@ -1477,7 +1477,7 @@
     "age": null,
     "birthdate": "2004-10-08T00:00:00",
     "position": "Guard",
-    "jersey": "13",
+    "jersey": "8",
     "draft_number": "29",
     "draft_year": "2024",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642268.png",
@@ -1487,7 +1487,7 @@
   {
     "id": 1628381,
     "name": "John Collins",
-    "team": "Jazz",
+    "team": "Clippers",
     "conference": "West",
     "age": null,
     "birthdate": "1997-09-23T00:00:00",
@@ -1496,7 +1496,7 @@
     "draft_number": "19",
     "draft_year": "2017",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628381.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612762/global/L/logo.svg",
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612746/global/L/logo.svg",
     "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
@@ -1877,8 +1877,8 @@
   {
     "id": 203915,
     "name": "Spencer Dinwiddie",
-    "team": "Mavericks",
-    "conference": "West",
+    "team": "Hornets",
+    "conference": "East",
     "age": null,
     "birthdate": "1993-04-06T00:00:00",
     "position": "Guard",
@@ -1886,8 +1886,8 @@
     "draft_number": "38",
     "draft_year": "2014",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/203915.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612742/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612766/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1629029,
@@ -2222,16 +2222,16 @@
   {
     "id": 1629234,
     "name": "Drew Eubanks",
-    "team": "Clippers",
+    "team": "Kings",
     "conference": "West",
     "age": null,
     "birthdate": "1997-02-01T00:00:00",
     "position": "Forward-Center",
-    "jersey": "15",
+    "jersey": "17",
     "draft_number": "Undrafted",
     "draft_year": "Undrafted",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629234.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612746/global/L/logo.svg",
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg",
     "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
@@ -2302,7 +2302,7 @@
     "age": null,
     "birthdate": "1993-05-04T00:00:00",
     "position": "Forward",
-    "jersey": "17",
+    "jersey": "2",
     "draft_number": "Undrafted",
     "draft_year": "Undrafted",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1627827.png",
@@ -2357,7 +2357,7 @@
   {
     "id": 1631323,
     "name": "Simone Fontecchio",
-    "team": "Pistons",
+    "team": "Heat",
     "conference": "East",
     "age": null,
     "birthdate": "1995-12-09T00:00:00",
@@ -2366,7 +2366,7 @@
     "draft_number": "Undrafted",
     "draft_year": "Undrafted",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631323.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg",
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg",
     "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
@@ -2477,8 +2477,8 @@
   {
     "id": 1630568,
     "name": "Luka Garza",
-    "team": "Timberwolves",
-    "conference": "West",
+    "team": "Celtics",
+    "conference": "East",
     "age": null,
     "birthdate": "1998-12-27T00:00:00",
     "position": "Center",
@@ -2486,8 +2486,8 @@
     "draft_number": "52",
     "draft_year": "2021",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630568.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612738/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1641718,
@@ -2867,8 +2867,8 @@
   {
     "id": 203501,
     "name": "Tim Hardaway Jr.",
-    "team": "Pistons",
-    "conference": "East",
+    "team": "Nuggets",
+    "conference": "West",
     "age": null,
     "birthdate": "1992-03-16T00:00:00",
     "position": "Guard-Forward",
@@ -2876,8 +2876,8 @@
     "draft_number": "24",
     "draft_year": "2013",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/203501.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 201935,
@@ -2942,7 +2942,7 @@
   {
     "id": 203914,
     "name": "Gary Harris",
-    "team": "Magic",
+    "team": "Bucks",
     "conference": "East",
     "age": null,
     "birthdate": "1994-09-14T00:00:00",
@@ -2951,7 +2951,7 @@
     "draft_number": "19",
     "draft_year": "2014",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/203914.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612753/global/L/logo.svg",
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg",
     "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
@@ -3157,7 +3157,7 @@
     "age": null,
     "birthdate": "1990-06-12T00:00:00",
     "position": "Guard",
-    "jersey": "4",
+    "jersey": "5",
     "draft_number": "17",
     "draft_year": "2009",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/201950.png",
@@ -3172,7 +3172,7 @@
     "age": null,
     "birthdate": "2005-07-07T00:00:00",
     "position": "Forward",
-    "jersey": "00",
+    "jersey": "5",
     "draft_number": "5",
     "draft_year": "2024",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641842.png",
@@ -3322,7 +3322,7 @@
     "age": null,
     "birthdate": "1997-08-25T00:00:00",
     "position": "Center",
-    "jersey": "30",
+    "jersey": "32",
     "draft_number": "Undrafted",
     "draft_year": "Undrafted",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630643.png",
@@ -3562,7 +3562,7 @@
     "age": null,
     "birthdate": "1999-09-15T00:00:00",
     "position": "Forward-Center",
-    "jersey": "13",
+    "jersey": "8",
     "draft_number": "4",
     "draft_year": "2018",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628991.png",
@@ -3677,8 +3677,8 @@
   {
     "id": 1629660,
     "name": "Ty Jerome",
-    "team": "Cavaliers",
-    "conference": "East",
+    "team": "Grizzlies",
+    "conference": "West",
     "age": null,
     "birthdate": "1997-07-08T00:00:00",
     "position": "Guard-Forward",
@@ -3686,8 +3686,8 @@
     "draft_number": "24",
     "draft_year": "2019",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629660.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612739/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1630198,
@@ -3722,17 +3722,17 @@
   {
     "id": 1629661,
     "name": "Cameron Johnson",
-    "team": "Nets",
-    "conference": "East",
+    "team": "Nuggets",
+    "conference": "West",
     "age": null,
     "birthdate": "1996-03-03T00:00:00",
     "position": "Forward",
-    "jersey": "2",
+    "jersey": "23",
     "draft_number": "11",
     "draft_year": "2019",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629661.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612751/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1630552,
@@ -3967,7 +3967,7 @@
     "age": null,
     "birthdate": "1997-02-15T00:00:00",
     "position": "Forward",
-    "jersey": "55",
+    "jersey": "5",
     "draft_number": "Undrafted",
     "draft_year": "Undrafted",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1627884.png",
@@ -4067,8 +4067,8 @@
   {
     "id": 1628379,
     "name": "Luke Kennard",
-    "team": "Grizzlies",
-    "conference": "West",
+    "team": "Hawks",
+    "conference": "East",
     "age": null,
     "birthdate": "1996-06-24T00:00:00",
     "position": "Guard",
@@ -4076,8 +4076,8 @@
     "draft_number": "12",
     "draft_year": "2017",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628379.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612737/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1631117,
@@ -4237,7 +4237,7 @@
     "age": null,
     "birthdate": "1995-07-15T00:00:00",
     "position": "Center-Forward",
-    "jersey": "40",
+    "jersey": "7",
     "draft_number": "Undrafted",
     "draft_year": "Undrafted",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628436.png",
@@ -4382,16 +4382,16 @@
   {
     "id": 1627747,
     "name": "Caris LeVert",
-    "team": "Hawks",
+    "team": "Pistons",
     "conference": "East",
     "age": null,
     "birthdate": "1994-08-25T00:00:00",
     "position": "Guard",
-    "jersey": "3",
+    "jersey": "8",
     "draft_number": "20",
     "draft_year": "2016",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1627747.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612737/global/L/logo.svg",
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg",
     "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
@@ -4532,7 +4532,7 @@
   {
     "id": 1626172,
     "name": "Kevon Looney",
-    "team": "Warriors",
+    "team": "Pelicans",
     "conference": "West",
     "age": null,
     "birthdate": "1996-02-06T00:00:00",
@@ -4541,7 +4541,7 @@
     "draft_number": "30",
     "draft_year": "2015",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1626172.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612744/global/L/logo.svg",
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612740/global/L/logo.svg",
     "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
@@ -4562,8 +4562,8 @@
   {
     "id": 201567,
     "name": "Kevin Love",
-    "team": "Heat",
-    "conference": "East",
+    "team": "Jazz",
+    "conference": "West",
     "age": null,
     "birthdate": "1988-09-07T00:00:00",
     "position": "Forward-Center",
@@ -4571,8 +4571,8 @@
     "draft_number": "5",
     "draft_year": "2008",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/201567.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612762/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 200768,
@@ -5041,9 +5041,9 @@
   },
   {
     "id": 203995,
-    "name": "Vasilije Mici\u0107",
-    "team": "Bucks",
-    "conference": "East",
+    "name": "Vasilije Micic",
+    "team": "Suns",
+    "conference": "West",
     "age": null,
     "birthdate": "1994-01-13T00:00:00",
     "position": "Guard",
@@ -5051,8 +5051,8 @@
     "draft_number": "52",
     "draft_year": "2014",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/203995.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 203114,
@@ -5192,8 +5192,8 @@
   {
     "id": 1631169,
     "name": "Josh Minott",
-    "team": "Timberwolves",
-    "conference": "West",
+    "team": "Celtics",
+    "conference": "East",
     "age": null,
     "birthdate": "2002-11-25T00:00:00",
     "position": "Forward",
@@ -5201,8 +5201,8 @@
     "draft_number": "45",
     "draft_year": "2022",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631169.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612738/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1642274,
@@ -5482,7 +5482,7 @@
     "age": null,
     "birthdate": "1997-06-10T00:00:00",
     "position": "Guard-Forward",
-    "jersey": "19",
+    "jersey": "10",
     "draft_number": "47",
     "draft_year": "2018",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629004.png",
@@ -5762,8 +5762,8 @@
   {
     "id": 203482,
     "name": "Kelly Olynyk",
-    "team": "Wizards",
-    "conference": "East",
+    "team": "Spurs",
+    "conference": "West",
     "age": null,
     "birthdate": "1991-04-19T00:00:00",
     "position": "Forward-Center",
@@ -5771,8 +5771,8 @@
     "draft_number": "13",
     "draft_year": "2013",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/203482.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1626162,
@@ -5927,8 +5927,8 @@
   {
     "id": 203486,
     "name": "Mason Plumlee",
-    "team": "Suns",
-    "conference": "West",
+    "team": "Hornets",
+    "conference": "East",
     "age": null,
     "birthdate": "1990-03-05T00:00:00",
     "position": "Forward-Center",
@@ -5936,8 +5936,8 @@
     "draft_number": "22",
     "draft_year": "2013",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/203486.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612766/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1641764,
@@ -6017,17 +6017,17 @@
   {
     "id": 1629008,
     "name": "Michael Porter Jr.",
-    "team": "Nuggets",
-    "conference": "West",
+    "team": "Nets",
+    "conference": "East",
     "age": null,
     "birthdate": "1998-06-29T00:00:00",
     "position": "Forward",
-    "jersey": "1",
+    "jersey": "7",
     "draft_number": "14",
     "draft_year": "2018",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629008.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612751/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1626171,
@@ -6107,8 +6107,8 @@
   {
     "id": 1626181,
     "name": "Norman Powell",
-    "team": "Clippers",
-    "conference": "West",
+    "team": "Heat",
+    "conference": "East",
     "age": null,
     "birthdate": "1993-05-25T00:00:00",
     "position": "Guard",
@@ -6116,8 +6116,8 @@
     "draft_number": "46",
     "draft_year": "2015",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1626181.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612746/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1627752,
@@ -6437,7 +6437,7 @@
   {
     "id": 1629130,
     "name": "Duncan Robinson",
-    "team": "Heat",
+    "team": "Pistons",
     "conference": "East",
     "age": null,
     "birthdate": "1994-04-22T00:00:00",
@@ -6446,7 +6446,7 @@
     "draft_number": "Undrafted",
     "draft_year": "Undrafted",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629130.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg",
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg",
     "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
@@ -6497,7 +6497,7 @@
   {
     "id": 1631223,
     "name": "David Roddy",
-    "team": "Hawks",
+    "team": "Raptors",
     "conference": "East",
     "age": null,
     "birthdate": "2001-03-27T00:00:00",
@@ -6506,7 +6506,7 @@
     "draft_number": "23",
     "draft_year": "2022",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631223.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612737/global/L/logo.svg",
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612761/global/L/logo.svg",
     "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
@@ -6577,7 +6577,7 @@
     "age": null,
     "birthdate": "1996-02-23T00:00:00",
     "position": "Guard",
-    "jersey": "1",
+    "jersey": "5",
     "draft_number": "2",
     "draft_year": "2015",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1626156.png",
@@ -6707,8 +6707,8 @@
   {
     "id": 203471,
     "name": "Dennis Schr\u00f6der",
-    "team": "Pistons",
-    "conference": "East",
+    "team": "Kings",
+    "conference": "West",
     "age": null,
     "birthdate": "1993-09-15T00:00:00",
     "position": "Guard",
@@ -6716,8 +6716,8 @@
     "draft_number": "17",
     "draft_year": "2013",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/203471.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1630578,
@@ -6787,7 +6787,7 @@
     "age": null,
     "birthdate": "2000-07-30T00:00:00",
     "position": "Guard-Forward",
-    "jersey": "00",
+    "jersey": "1",
     "draft_number": "27",
     "draft_year": "2024",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630545.png",
@@ -6982,7 +6982,7 @@
     "age": null,
     "birthdate": "2000-03-16T00:00:00",
     "position": "Forward-Center",
-    "jersey": "7",
+    "jersey": "25",
     "draft_number": "10",
     "draft_year": "2020",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630188.png",
@@ -7112,8 +7112,8 @@
   {
     "id": 1641815,
     "name": "Isaiah Stevens",
-    "team": "Heat",
-    "conference": "East",
+    "team": "Kings",
+    "conference": "West",
     "age": null,
     "birthdate": "2000-11-01T00:00:00",
     "position": "Guard",
@@ -7121,8 +7121,8 @@
     "draft_number": "Undrafted",
     "draft_year": "Undrafted",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641815.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1630205,
@@ -7282,7 +7282,7 @@
     "age": null,
     "birthdate": "2002-07-12T00:00:00",
     "position": "Forward",
-    "jersey": "25",
+    "jersey": "7",
     "draft_number": "18",
     "draft_year": "2022",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631207.png",
@@ -7642,7 +7642,7 @@
     "age": null,
     "birthdate": "2002-12-02T00:00:00",
     "position": "Guard-Forward",
-    "jersey": "24",
+    "jersey": "20",
     "draft_number": "20",
     "draft_year": "2024",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642281.png",
@@ -7667,7 +7667,7 @@
   {
     "id": 202685,
     "name": "Jonas Valan\u010di\u016bnas",
-    "team": "Kings",
+    "team": "Nuggets",
     "conference": "West",
     "age": null,
     "birthdate": "1992-05-06T00:00:00",
@@ -7676,7 +7676,7 @@
     "draft_number": "5",
     "draft_year": "2011",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/202685.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg",
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg",
     "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   },
   {
@@ -8057,8 +8057,8 @@
   {
     "id": 1631104,
     "name": "Blake Wesley",
-    "team": "Spurs",
-    "conference": "West",
+    "team": "Wizards",
+    "conference": "East",
     "age": null,
     "birthdate": "2003-03-16T00:00:00",
     "position": "Guard",
@@ -8066,8 +8066,8 @@
     "draft_number": "25",
     "draft_year": "2022",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631104.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg",
-    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 201566,
@@ -8417,17 +8417,17 @@
   {
     "id": 1630164,
     "name": "James Wiseman",
-    "team": "",
-    "conference": "Unknown",
+    "team": "Pacers",
+    "conference": "East",
     "age": null,
     "birthdate": "2001-03-31T00:00:00",
     "position": "Center",
-    "jersey": "",
+    "jersey": "13",
     "draft_number": "2",
     "draft_year": "2020",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630164.png",
-    "team_logo": null,
-    "conference_logo": null
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612754/global/L/logo.svg",
+    "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Eastern_Conference_%28NBA%29_logo_2018.png/1920px-Eastern_Conference_%28NBA%29_logo_2018.png"
   },
   {
     "id": 1631209,
@@ -8567,7 +8567,7 @@
   {
     "id": 203967,
     "name": "Dario \u0160ari\u0107",
-    "team": "Nuggets",
+    "team": "Kings",
     "conference": "West",
     "age": null,
     "birthdate": "1994-04-08T00:00:00",
@@ -8576,7 +8576,7 @@
     "draft_number": "12",
     "draft_year": "2014",
     "player_image": "https://cdn.nba.com/headshots/nba/latest/1040x760/203967.png",
-    "team_logo": "https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg",
+    "team_logo": "https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg",
     "conference_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Western_Conference_%28NBA%29_logo_2018.png/1920px-Western_Conference_%28NBA%29_logo_2018.png"
   }
 ]
