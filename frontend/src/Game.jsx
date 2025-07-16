@@ -4,6 +4,7 @@ import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
 import { DateTime } from "luxon";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 
 function Game({ mode }) {
@@ -22,6 +23,9 @@ function Game({ mode }) {
   const [lockedOut, setLockedOut] = useState(false);
   const [showWinnerPopup, setShowWinnerPopup] = useState(false);
   const [showLoserPopup, setShowLoserPopup] = useState(false);
+  const scrollContainerRef = useRef(null);
+  const scrollAnchorRef = useRef(null);
+
 
 
   useEffect(() => {
@@ -119,6 +123,11 @@ useEffect(() => {
   return () => clearTimeout(timeout);
 }, [mode, results, guessesLeft, isWinner, isLoser, hasUsedHint]);
 
+useEffect(() => {
+  if (scrollAnchorRef.current && scrollContainerRef.current) {
+    scrollAnchorRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+  }
+}, [results]);
 
 useEffect(() => {
   if (mode !== "daily") return;
@@ -278,7 +287,7 @@ const resetUnlimitedGame = () => {
           <h2 className="text-2xl font-bold text-red-600 mb-2">😢 You Lost!</h2>
           <p className="mb-2 text-lg">The mystery player was <strong>{mysteryPlayer.name}</strong>:</p>
         </div>
-        <div className="flex border border-gray-300 divide-x divide-gray-300 rounded-md overflow-hidden bg-white">
+        <motion.div className="flex border border-gray-300 divide-x divide-gray-300 rounded-md overflow-hidden bg-white">
           <StatCell label="Player" data={{ value: mysteryPlayer.name }} image={mysteryPlayer.player_image} />
           <StatCell label="Team" data={{ value: mysteryPlayer.team }} image={mysteryPlayer.team_logo} />
           <StatCell label="Conference" data={{ value: mysteryPlayer.conference }} image={mysteryPlayer.conference_logo} />
@@ -286,7 +295,7 @@ const resetUnlimitedGame = () => {
           <StatCell label="Position" data={{ value: mysteryPlayer.position }} />
           <StatCell label="Jersey #" data={{ value: mysteryPlayer.jersey }} />
           <StatCell label="Draft #" data={{ value: mysteryPlayer.draft_number }} />
-        </div>
+        </motion.div>
         <button
           onClick={() => setShowLoserPopup(false)}
           className="mt-6 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
@@ -471,10 +480,14 @@ const resetUnlimitedGame = () => {
   </div>
 )}
 
-    <div className="w-full max-w-6xl h-[600px] overflow-y-auto mt-4 space-y-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 p-3">
-
-      {results.map((result, index) => (
-        result.error ? (
+    <div
+      ref={scrollContainerRef}
+      className="w-full max-w-6xl h-[600px] overflow-y-auto mt-4 space-y-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 p-3"
+      style={{ perspective: "1000px" }}
+    >
+      {results.map((result, index) => {
+        const isLast = index === results.length - 1;
+        return result.error ? (
           <div
             key={index}
             className="bg-red-100 border border-red-300 text-red-700 text-center p-3 rounded-md"
@@ -483,51 +496,63 @@ const resetUnlimitedGame = () => {
           </div>
         ) : (
           <div
-            key={index}
-            className="flex border border-gray-300 divide-x divide-gray-300 rounded-md overflow-hidden bg-white"
-          >
+            className="flex border border-gray-300 divide-x divide-gray-300 rounded-md overflow-hidden bg-white">
             <StatCell
+              key={`${index}-player`}
               label="Player"
               data={{ value: result.name }}
               image={result.player_image}
-              hint={hint?.field === "name" ? hint : null}
+              hint={isLast && hint?.field === "name" ? hint : null}
+              delay={0}
             />
             <StatCell
+              key={`${index}-team`}
               label="Team"
               data={result.team}
               image={result.team_logo}
-              hint={hint?.field === "team" ? hint : null}
+              hint={isLast && hint?.field === "team" ? hint : null}
+              delay={0.1}
             />
             <StatCell
+              key={`${index}-conference`}
               label="Conference"
               data={result.conference}
               image={result.conference_logo}
-              hint={hint?.field === "conference" ? hint : null}
+              hint={isLast && hint?.field === "conference" ? hint : null}
+              delay={0.2}
             />
             <StatCell
+              key={`${index}-age`}
               label="Age"
               data={result.age}
-              hint={hint?.field === "age" ? hint : null}
+              hint={isLast && hint?.field === "age" ? hint : null}
+              delay={0.3}
             />
             <StatCell
+              key={`${index}-position`}
               label="Position"
               data={result.position}
-              hint={hint?.field === "position" ? hint : null}
+              hint={isLast && hint?.field === "position" ? hint : null}
+              delay={0.4}
             />
             <StatCell
+              key={`${index}-jersey`}
               label="Jersey #"
               data={result.jersey}
-              hint={hint?.field === "jersey" ? hint : null}
+              hint={isLast && hint?.field === "jersey" ? hint : null}
+              delay={0.5}
             />
             <StatCell
+              key={`${index}-draft`}
               label="Draft #"
               data={result.draft_number}
-              hint={hint?.field === "draft_number" ? hint : null}
+              hint={isLast && hint?.field === "draft_number" ? hint : null}
+              delay={0.6}
             />
-
           </div>
-        )
-      ))}
+        );
+      })}
+
       {isLoser && mysteryPlayer && (
         <div className="mt-6 w-full max-w-6xl border border-red-300 dark:border-red-600 rounded-md bg-red-50 dark:bg-red-900 p-3">
           <h3 className="text-center text-lg font-semibold text-red-700 mb-2">
@@ -544,23 +569,34 @@ const resetUnlimitedGame = () => {
           </div>
         </div>
       )}
+      <div ref={scrollAnchorRef} />
     </div>
   </div>
 );
 }
 
-  function StatCell({ label, data = {}, image, hint }) {
-    const { value, arrow, direction } = typeof data === "object" ? data : { value: data, arrow: null, direction: null };
+  function StatCell({ label, data = {}, image, hint, delay = 0 }) {
+  const { value, arrow, direction } = typeof data === "object" ? data : { value: data, arrow: null, direction: null };
 
-    let bgClass = "bg-white dark:bg-gray-800";
-    if (arrow === "green") {
-        bgClass = "bg-green-100 dark:bg-green-900";
-      } else if (arrow === "yellow") {
-         bgClass = "bg-yellow-100 dark:bg-yellow-900";
-      }
+  let bgClass = "bg-white dark:bg-gray-800";
+  if (arrow === "green") {
+    bgClass = "bg-green-100 dark:bg-green-900";
+  } else if (arrow === "yellow") {
+    bgClass = "bg-yellow-100 dark:bg-yellow-900";
+  }
 
   return (
-    <div className={`flex-1 text-center p-4 ${bgClass}`}>
+    <motion.div
+      className={`flex-1 text-center p-4 ${bgClass}`}
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 0.4,
+        delay,
+        type: "spring",
+        bounce: 0.4,
+      }}
+    >
       {image && (
         <div className="flex justify-center mb-2">
           <img src={image} alt={label} className="h-12 w-auto object-contain" />
@@ -575,7 +611,8 @@ const resetUnlimitedGame = () => {
           Hint: {hint.value}
         </p>
       )}
-    </div>
+    </motion.div>
   );
 }
+
 export default Game;
