@@ -625,11 +625,6 @@ const resetUnlimitedGame = () => {
         bounce: 0.4,
       }}
     >
-      {image && (
-        <div className="flex justify-center mb-2">
-          <img src={image} alt={label} className="h-8 sm:h-12 w-auto object-contain" />
-        </div>
-      )}
       {(
         !image ||
         label === "Age" ||
@@ -642,9 +637,28 @@ const resetUnlimitedGame = () => {
           {direction && <span>{direction}</span>}
         </div>
       ) : (
-        <div className="hidden lg:flex flex-col items-center justify-center text-sm sm:text-base font-semibold gap-1">
-          <span>{value}</span>
+        <div className="relative flex flex-col items-center justify-center text-sm sm:text-base font-semibold gap-1 group">
+          {/* Image that triggers hover */}
+          {image && (
+            <div className="flex justify-center mb-2 group-hover:cursor-pointer">
+              <img
+                src={image}
+                alt={label}
+                className="h-8 sm:h-12 w-auto object-contain"
+              />
+            </div>
+          )}
+
+          {/* Value shown on large screens */}
+          <span className="hidden lg:inline">{value}</span>
+
+          {/* Tooltip shown on hover (image or value) on smaller screens */}
+          <div className="lg:hidden absolute bottom-[-1.5rem] bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition duration-200 z-10 pointer-events-none whitespace-nowrap">
+            {value}
+          </div>
         </div>
+
+
       )}
 
 
