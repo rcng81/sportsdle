@@ -6,6 +6,7 @@ import { DateTime } from "luxon";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
+const API_BASE = process.env.REACT_APP_API_BASE;
 
 function Game({ mode }) {
   const [players, setPlayers] = useState([]);
@@ -29,7 +30,7 @@ function Game({ mode }) {
 
 
   useEffect(() => {
-  axios.get("https://sportsdle-backend.onrender.com/players")
+  axios.get(`${API_BASE}/players`)
     .then(res => {
       const sortedPlayers = res.data.sort((a, b) => {
         const firstA = a.name.split(" ")[0].toLowerCase();
@@ -61,7 +62,7 @@ function Game({ mode }) {
 
   useEffect(() => {
   if (mode !== "daily") {
-    axios.get(`https://sportsdle-backend.onrender.com/mystery?mode=${mode}`)
+    axios.get(`${API_BASE}/mystery?mode=${mode}`)
       .then(res => setMysteryPlayer(res.data));
   } else {
     const todayKey = DateTime.now().toFormat("yyyy-LL-dd");
@@ -84,7 +85,7 @@ function Game({ mode }) {
       return;
     }
 
-    axios.get(`https://sportsdle-backend.onrender.com/mystery?mode=daily`).then(res => {
+    axios.get(`${API_BASE}/mystery?mode=daily`).then(res => {
       setMysteryPlayer(res.data);
       const data = {
         mysteryPlayer: res.data,
@@ -151,6 +152,7 @@ useEffect(() => {
 
   const handleGuess = () => {
   if (guessesLeft <= 0 || lockedOut || isWinner || isLoser) return;
+  
 
   const validPlayer = players.find(p => p.name.toLowerCase() === guess.toLowerCase());
   if (!validPlayer) {
@@ -164,7 +166,7 @@ useEffect(() => {
     return;
   }
 
-  axios.post("https://sportsdle-backend.onrender.com/guess", {
+  axios.post(`${API_BASE}/guess`, {
     name: guess,
     mysteryPlayer: mysteryPlayer,
   })
@@ -237,7 +239,7 @@ const filteredPlayers = players.filter(p =>
 const canShowHintButton = results.length > 0 && guessesLeft > 1 && !isWinner && !isLoser && !hasUsedHint && !lockedOut;
 
 const resetUnlimitedGame = () => {
-  axios.get(`https://sportsdle-backend.onrender.com?mode=unlimited`).then(res => {
+  axios.get(`${API_BASE}/mystery?mode=unlimited`).then(res => {
     setMysteryPlayer(res.data);
     setResults([]);
     setGuess("");
@@ -250,7 +252,6 @@ const resetUnlimitedGame = () => {
     setShowLoserPopup(false);
   });
 };
-
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 flex flex-col items-center p-6">
@@ -411,7 +412,7 @@ const resetUnlimitedGame = () => {
     if (r.draft_number?.arrow === "green") usedGreenFields.add("draft_number");
   });
 
-  axios.post("https://sportsdle-backend.onrender.com/hint", {
+  axios.post(`${API_BASE}/hint`, {
     used: Array.from(usedGreenFields),
     mysteryPlayer: mysteryPlayer
   })
@@ -431,7 +432,7 @@ const resetUnlimitedGame = () => {
     setGuessesLeft(prev => {
       const newGuesses = prev - 1;
       if (newGuesses === 0 && !res.data.isCorrect) {
-        axios.get("https://sportsdle-backend.onrender.com").then(response => {
+        axios.get(`${API_BASE}`).then(response => {
           setMysteryPlayer(response.data);
           setIsLoser(true);
         });

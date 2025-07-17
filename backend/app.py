@@ -18,7 +18,6 @@ if os.path.exists(DAILY_FILE):
 else:
     daily_mystery_cache = {}
 
-# Load pre-saved player data
 with open('players.json', 'r') as f:
     players = json.load(f)
 
@@ -45,10 +44,16 @@ def guess():
     if not guess_player:
         return jsonify({"error": "Player not found"}), 404
 
-    feedback = generate_feedback(guess_player, mystery_data)
-    is_correct = guess_player["name"].lower() == mystery_data["name"].lower()
-    feedback["isCorrect"] = is_correct
-    return jsonify(feedback=feedback, isCorrect=is_correct, mysteryPlayer=mystery_data)
+    mystery_player = next((p for p in players if p["name"].lower() == mystery_data["name"].lower()), None)
+    if not mystery_player:
+        return jsonify({"error": "Mystery player not found"}), 404
+
+    mystery_player["age"] = calculate_age(mystery_player.get("birthdate"))
+
+    feedback = generate_feedback(guess_player, mystery_player)
+    is_correct = guess_player["name"].lower() == mystery_player["name"].lower()
+    return jsonify(feedback=feedback, isCorrect=is_correct, mysteryPlayer=mystery_player)
+
 
 
 
@@ -64,12 +69,17 @@ def get_mystery():
         index = int(sha256(today.encode()).hexdigest(), 16) % len(shuffled)
         mystery = shuffled[index]
 
+        mystery["age"] = calculate_age(mystery.get("birthdate"))
+
         print(f"[Daily Mode] {today}: {mystery['name']}")
         return jsonify(mystery)
 
-    # Unlimited mode: random
     mystery = random.choice(players)
+
+    mystery["age"] = calculate_age(mystery.get("birthdate"))
+
     return jsonify(mystery)
+
 
 
 
@@ -79,13 +89,10 @@ def give_hint():
     mystery = data.get("mysteryPlayer")
     used_fields = set(data.get("used", []))
 
-    # Only allow hints from this approved list (draft_year excluded)
     possible_fields = ["team", "conference", "position", "age", "jersey", "draft_number"]
 
-    # Remove fields that have already been used
     available_fields = [f for f in possible_fields if f not in used_fields]
 
-    # Filter out fields that have no value, are empty, or "Undrafted"
     valid_fields = []
     for field in available_fields:
         value = mystery.get(field)
