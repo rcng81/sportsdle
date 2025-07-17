@@ -228,10 +228,6 @@ useEffect(() => {
     });
 };
 
-
-
-
-
 const filteredPlayers = players.filter(p =>
   p.name.toLowerCase().includes(guess.toLowerCase())
 );
@@ -272,7 +268,7 @@ const resetUnlimitedGame = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 flex flex-col items-center p-6">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 flex flex-col items-center p-6 overflow-x-hidden w-full">
       {showWinnerPopup && isWinner && (
   <>
     <Confetti width={width} height={height} />
@@ -499,11 +495,25 @@ const resetUnlimitedGame = () => {
   </div>
 )}
 
+
+<div className="w-full max-w-full overflow-x-hidden"></div>
     <div
       ref={scrollContainerRef}
       className="w-full max-w-6xl h-[600px] overflow-y-auto mt-4 space-y-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 p-3"
       style={{ perspective: "1000px" }}
     >
+    {results.length > 0 && (
+      <div className="flex border border-gray-300 divide-x divide-gray-300 rounded-md bg-gray-100 dark:bg-gray-700 text-[10px] sm:text-sm font-bold text-gray-600 dark:text-gray-200 text-center">
+        <div className="flex-1 px-1 py-2">Player</div>
+        <div className="flex-1 px-1 py-2">Team</div>
+        <div className="flex-1 px-1 py-2">Conference</div>
+        <div className="flex-1 px-1 py-2">Age</div>
+        <div className="flex-1 px-1 py-2">Position</div>
+        <div className="flex-1 px-1 py-2">Jersey #</div>
+        <div className="flex-1 px-1 py-2">Draft #</div>
+      </div>
+    )}
+
       {results.map((result, index) => {
         const isLast = index === results.length - 1;
         return result.error ? (
@@ -514,8 +524,7 @@ const resetUnlimitedGame = () => {
             {result.error}
           </div>
         ) : (
-          <div
-            className="flex border border-gray-300 divide-x divide-gray-300 rounded-md overflow-hidden bg-white">
+          <div className="flex border border-gray-300 divide-x divide-gray-300 rounded-md bg-white text-[11px] sm:text-base">
             <StatCell
               key={`${index}-player`}
               label="Player"
@@ -578,13 +587,13 @@ const resetUnlimitedGame = () => {
             The mystery player was: {mysteryPlayer.name}
           </h3>
           <div className="flex border border-gray-300 divide-x divide-gray-300 rounded-md overflow-hidden bg-white">
-            <StatCell label="Player" data={{ value: mysteryPlayer.name }} image={mysteryPlayer.player_image} />
-            <StatCell label="Team" data={{ value: mysteryPlayer.team }} image={mysteryPlayer.team_logo} />
-            <StatCell label="Conference" data={{ value: mysteryPlayer.conference }} image={mysteryPlayer.conference_logo} />
-            <StatCell label="Age" data={{ value: mysteryPlayer.age }} />
-            <StatCell label="Position" data={{ value: mysteryPlayer.position }} />
-            <StatCell label="Jersey #" data={{ value: mysteryPlayer.jersey }} />
-            <StatCell label="Draft #" data={{ value: mysteryPlayer.draft_number }} />
+            <StatCell data={{ value: mysteryPlayer.name }} image={mysteryPlayer.player_image} />
+            <StatCell data={{ value: mysteryPlayer.team }} image={mysteryPlayer.team_logo} />
+            <StatCell data={{ value: mysteryPlayer.conference }} image={mysteryPlayer.conference_logo} />
+            <StatCell data={{ value: mysteryPlayer.age }} />
+            <StatCell data={{ value: mysteryPlayer.position }} />
+            <StatCell data={{ value: mysteryPlayer.jersey }} />
+            <StatCell data={{ value: mysteryPlayer.draft_number }} />
           </div>
         </div>
       )}
@@ -606,7 +615,7 @@ const resetUnlimitedGame = () => {
 
   return (
     <motion.div
-      className={`flex-1 text-center p-4 ${bgClass}`}
+      className={`flex-1 min-w-0 max-w-[60px] sm:max-w-none text-center px-1 py-2 sm:p-4 ${bgClass}`}
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
@@ -618,13 +627,27 @@ const resetUnlimitedGame = () => {
     >
       {image && (
         <div className="flex justify-center mb-2">
-          <img src={image} alt={label} className="h-12 w-auto object-contain" />
+          <img src={image} alt={label} className="h-8 sm:h-12 w-auto object-contain" />
         </div>
       )}
-      <p className="text-sm text-gray-500 dark:text-gray-400">{label}</p>
-      <p className="text-lg font-semibold">
-        {value} {direction || ""}
-      </p>
+      {(
+        !image ||
+        label === "Age" ||
+        label === "Position" ||
+        label === "Jersey #" ||
+        label === "Draft #"
+      ) ? (
+        <div className="flex sm:flex-row flex-col items-center justify-center text-[10px] sm:text-sm md:text-base font-semibold gap-1">
+          <span>{value}</span>
+          {direction && <span>{direction}</span>}
+        </div>
+      ) : (
+        <div className="hidden lg:flex flex-col items-center justify-center text-sm sm:text-base font-semibold gap-1">
+          <span>{value}</span>
+        </div>
+      )}
+
+
       {hint && (
         <p className="mt-2 text-xs text-yellow-700 dark:text-white bg-yellow-100 dark:bg-yellow-800 border border-yellow-300 dark:border-yellow-600 rounded px-2 py-1">
           Hint: {hint.value}
