@@ -240,7 +240,23 @@ const canShowHintButton = results.length > 0 && guessesLeft > 1 && !isWinner && 
 
 const resetUnlimitedGame = () => {
   axios.get(`${API_BASE}/mystery?mode=unlimited`).then(res => {
-    setMysteryPlayer(res.data);
+    const player = res.data;
+
+    if (player.birthdate) {
+      const birthdate = new Date(player.birthdate);
+      const today = new Date();
+      const age =
+        today.getFullYear() -
+        birthdate.getFullYear() -
+        (today.getMonth() < birthdate.getMonth() ||
+        (today.getMonth() === birthdate.getMonth() &&
+          today.getDate() < birthdate.getDate())
+          ? 1
+          : 0);
+      player.age = age;
+    }
+
+    setMysteryPlayer(player);
     setResults([]);
     setGuess("");
     setGuessesLeft(8);
@@ -250,8 +266,10 @@ const resetUnlimitedGame = () => {
     setHint(null);
     setShowWinnerPopup(false);
     setShowLoserPopup(false);
+    setLockedOut(false);
   });
 };
+
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 flex flex-col items-center p-6">
