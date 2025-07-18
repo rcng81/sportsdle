@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const API_BASE = process.env.REACT_APP_API_BASE;
 
-function Game({ mode }) {
+function BasketballGame({ mode }) {
   const [players, setPlayers] = useState([]);
   const [guess, setGuess] = useState("");
   const [results, setResults] = useState([]);
@@ -322,11 +322,12 @@ const resetUnlimitedGame = () => {
   )}
 
   <Link
-    to="/"
+    to="/basketball"
     className="text-5xl font-extrabold mb-6 text-indigo-700 tracking-tight drop-shadow-md hover:underline"
   >
     🏀 NBA Wordle
   </Link>
+
 
   {mode === "daily" && (isWinner || isLoser) && (
     <div className="text-center text-green-700 font-semibold mb-4">
@@ -671,4 +672,4 @@ const resetUnlimitedGame = () => {
   );
 }
 
-export default Game;
+export default BasketballGame;
