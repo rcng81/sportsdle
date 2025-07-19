@@ -29,8 +29,44 @@ function BasketballGame({ mode }) {
   const scrollContainerRef = useRef(null);
   const scrollAnchorRef = useRef(null);
 
+  const [showStats, setShowStats] = useState(false);
+  const [stats, setStats] = useState(() => {
+    return JSON.parse(localStorage.getItem("nbaWordleStats")) || {
+      gamesPlayed: 0,
+      gamesWon: 0,
+      currentStreak: 0,
+      maxStreak: 0
+    };
+  });
+
   const navigate = useNavigate();
 
+  const updateStats = (didWin) => {
+    const today = DateTime.now().toFormat("yyyy-LL-dd");
+    const yesterday = DateTime.now().minus({ days: 1 }).toFormat("yyyy-LL-dd");
+
+    const stored = JSON.parse(localStorage.getItem("nbaWordleStats")) || {
+      gamesPlayed: 0,
+      gamesWon: 0,
+      currentStreak: 0,
+      maxStreak: 0,
+      lastPlayedDate: null
+    };
+
+    stored.gamesPlayed += 1;
+
+    if (didWin) {
+      stored.gamesWon += 1;
+      stored.currentStreak = stored.lastPlayedDate === yesterday ? stored.currentStreak + 1 : 1;
+      stored.maxStreak = Math.max(stored.maxStreak, stored.currentStreak);
+    } else {
+      stored.currentStreak = 0;
+    }
+
+    stored.lastPlayedDate = today;
+    localStorage.setItem("nbaWordleStats", JSON.stringify(stored));
+    setStats(stored);
+  };
 
 
   useEffect(() => {
@@ -204,13 +240,17 @@ useEffect(() => {
         setIsWinner(true);
         setLockedOut(true);
         setShowWinnerPopup(true);
+        if (mode === "daily") updateStats(true);
       }
+
 
       if (didLose) {
         setIsLoser(true);
         setLockedOut(true);
         setShowLoserPopup(true);
+        if (mode === "daily") updateStats(false);
       }
+
 
 
       if (mode === "daily") {
@@ -273,7 +313,6 @@ const resetUnlimitedGame = () => {
 
   return (
   <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 flex flex-col items-center p-6 overflow-x-hidden w-full">
-    {/* Back Button */}
     <button
       onClick={() => navigate("/basketball")}
       className="absolute top-6 left-6 flex items-center gap-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 px-4 py-2 rounded-lg shadow hover:bg-gray-300 dark:hover:bg-gray-600 transition"
@@ -289,6 +328,15 @@ const resetUnlimitedGame = () => {
         
         <h2 className="text-2xl font-bold text-green-600 mb-2">🎉 Congratulations! 🎉</h2>
         <p className="text-gray-800 dark:text-gray-100">You correctly guessed the mystery player!</p>
+        {mode === "daily" && (
+          <div className="mt-4 text-sm text-gray-700 dark:text-gray-200">
+            <p>Total Games: {stats.gamesPlayed}</p>
+            <p>Wins: {stats.gamesWon}</p>
+            <p>Current Streak: {stats.currentStreak}</p>
+            <p>Max Streak: {stats.maxStreak}</p>
+          </div>
+        )}
+
         <button
           onClick={() => setShowWinnerPopup(false)}
           className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -314,6 +362,15 @@ const resetUnlimitedGame = () => {
           )}
           <h2 className="text-2xl font-bold text-red-600 mb-2">😢 You Lost!</h2>
           <p className="mb-2 text-lg">The mystery player was <strong>{mysteryPlayer.name}</strong>:</p>
+          {mode === "daily" && (
+          <div className="mt-4 text-sm text-gray-700 dark:text-gray-200">
+            <p>Total Games: {stats.gamesPlayed}</p>
+            <p>Wins: {stats.gamesWon}</p>
+            <p>Current Streak: {stats.currentStreak}</p>
+            <p>Max Streak: {stats.maxStreak}</p>
+          </div>
+        )}
+
         </div>
         <motion.div className="flex border border-gray-300 divide-x divide-gray-300 rounded-md overflow-hidden bg-white">
           <StatCell label="Player" data={{ value: mysteryPlayer.name }} image={mysteryPlayer.player_image} />
@@ -334,9 +391,38 @@ const resetUnlimitedGame = () => {
     </div>
   )}
 
+  {showStats && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white dark:bg-gray-900 p-6 rounded-lg text-center shadow-lg max-w-sm w-full">
+      <h2 className="text-xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">Your Stats</h2>
+      <p className="text-gray-700 dark:text-gray-200">Games Played: {stats.gamesPlayed}</p>
+      <p className="text-gray-700 dark:text-gray-200">Games Won: {stats.gamesWon}</p>
+      <p className="text-gray-700 dark:text-gray-200">🔥 Current Streak: {stats.currentStreak}</p>
+      <p className="text-gray-700 dark:text-gray-200">🏆 Max Streak: {stats.maxStreak}</p>
+      <button
+        onClick={() => setShowStats(false)}
+        className="mt-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
+
+
   <h1 className="text-5xl font-extrabold mb-6 text-indigo-700 tracking-tight drop-shadow-md">
     🏀 NBA Wordle
   </h1>
+  {mode === "daily" && (
+    <button
+      onClick={() => setShowStats(true)}
+      className="mb-4 bg-white dark:bg-gray-800 border px-4 py-2 rounded shadow text-sm hover:bg-gray-100 dark:hover:bg-gray-700"
+    >
+      📊 View Stats
+    </button>
+  )}
+
+
 
 
   {mode === "daily" && (isWinner || isLoser) && (
@@ -442,7 +528,7 @@ const resetUnlimitedGame = () => {
     mysteryPlayer: mysteryPlayer
   })
   .then(res => {
-    console.log("Hint response:", res.data); // ✅ This logs every hint response
+    console.log("Hint response:", res.data);
     setHint(res.data);
     setHasUsedHint(true);
 
@@ -649,7 +735,6 @@ const resetUnlimitedGame = () => {
         </div>
       ) : (
         <div className="relative flex flex-col items-center justify-center text-sm sm:text-base font-semibold gap-1 group">
-          {/* Image that triggers hover */}
           {image && (
             <div className="flex justify-center mb-2 group-hover:cursor-pointer">
               <img
@@ -660,10 +745,8 @@ const resetUnlimitedGame = () => {
             </div>
           )}
 
-          {/* Value shown on large screens */}
           <span className="hidden lg:inline">{value}</span>
 
-          {/* Tooltip shown on hover (image or value) on smaller screens */}
           <div className="lg:hidden absolute bottom-[-1.5rem] bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition duration-200 z-10 pointer-events-none whitespace-nowrap">
             {value}
           </div>
