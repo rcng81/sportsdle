@@ -1,4 +1,4 @@
-🏀 NBA Wordle – Basketball Guessing Game
+# 🏀 NBA Wordle – Basketball Guessing Game
 Welcome to NBA Wordle, a Wordle-style guessing game for current NBA players!
 Inspired by the original NBA Wordle trend, this project challenges players to identify a mystery NBA player using visual and statistical clues.
 
