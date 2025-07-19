@@ -36,9 +36,6 @@ function BasketballHome() {
             ♾️ Unlimited Mode
           </button>
         </div>
-        <p className="text-xs text-gray-400 mt-8 dark:text-gray-500">
-          Created by Russell • Version 1.0
-        </p>
       </div>
     </div>
   );

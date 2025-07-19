@@ -5,6 +5,8 @@ import { useWindowSize } from 'react-use';
 import { DateTime } from "luxon";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const API_BASE = process.env.REACT_APP_API_BASE;
 
@@ -26,6 +28,8 @@ function BasketballGame({ mode }) {
   const [showLoserPopup, setShowLoserPopup] = useState(false);
   const scrollContainerRef = useRef(null);
   const scrollAnchorRef = useRef(null);
+
+  const navigate = useNavigate();
 
 
 
@@ -268,12 +272,21 @@ const resetUnlimitedGame = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 flex flex-col items-center p-6 overflow-x-hidden w-full">
+  <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 flex flex-col items-center p-6 overflow-x-hidden w-full">
+    {/* Back Button */}
+    <button
+      onClick={() => navigate("/basketball")}
+      className="absolute top-6 left-6 flex items-center gap-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 px-4 py-2 rounded-lg shadow hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+    >
+      <ArrowLeft className="w-4 h-4" />
+      Back
+    </button>
       {showWinnerPopup && isWinner && (
   <>
     <Confetti width={width} height={height} />
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="bg-white dark:bg-gray-800 p-6 rounded shadow-lg border text-center">
+        
         <h2 className="text-2xl font-bold text-green-600 mb-2">🎉 Congratulations! 🎉</h2>
         <p className="text-gray-800 dark:text-gray-100">You correctly guessed the mystery player!</p>
         <button
@@ -321,12 +334,9 @@ const resetUnlimitedGame = () => {
     </div>
   )}
 
-  <Link
-    to="/basketball"
-    className="text-5xl font-extrabold mb-6 text-indigo-700 tracking-tight drop-shadow-md hover:underline"
-  >
+  <h1 className="text-5xl font-extrabold mb-6 text-indigo-700 tracking-tight drop-shadow-md">
     🏀 NBA Wordle
-  </Link>
+  </h1>
 
 
   {mode === "daily" && (isWinner || isLoser) && (
