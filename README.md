@@ -7,19 +7,14 @@ Live Site 👉 [https://sportsdle.vercel.app/]
 ---
 
 ## ✨ Features
-Wordle-style guessing game built for NBA fans
 
-Player stats include name, age, nationality, position, jersey number, and more
-
-Smart dropdown search with live filtering
-
-Daily Mode and Unlimited Mode support
-
-Animated stat reveals and smooth UI transitions
-
-Fully responsive design for mobile and desktop
-
-Organized and expandable for future basketball leagues or challenges
+- Wordle-style guessing game built for NBA fans
+- Player stats include name, team, conference, position, jersey #, and draft #
+- Smart dropdown search with live filtering
+- Daily Mode and Unlimited Mode support
+- Animated stat reveals and smooth UI transitions
+- Fully responsive design for mobile and desktop
+- Organized and expandable for future basketball leagues or challenges
 
 ---
 
